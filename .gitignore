@@ -1,0 +1,13 @@
+# Local environment
+venv/
+__pycache__/
+*.pyc
+
+# Test and coverage output (the baseline copy is kept in baseline/coverage_html/)
+.pytest_cache/
+.hypothesis/
+.coverage
+htmlcov/
+
+# Course brief: not ours to publish
+SEN4013-Project.pdf

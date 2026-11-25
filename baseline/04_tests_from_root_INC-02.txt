@@ -1,0 +1,375 @@
+﻿PS (project root)> python -m pytest
+============================= test session starts =============================
+platform win32 -- Python 3.14.2, pytest-9.2.0, pluggy-1.7.0
+rootdir: C:\Users\defne\OneDrive\Masaüstü\Verification and Validation
+plugins: hypothesis-6.170.17, cov-7.1.0
+collected 16 items
+
+tests\test_end_to_end.py FFF                                             [ 18%]
+tests\test_functional_generate.py ...                                    [ 37%]
+tests\test_functional_solve.py ....FFFFFF                                [100%]
+
+================================== FAILURES ===================================
+____________________ test_generate_solve_eval[Level.EASY] _____________________
+
+test_input = <Level.EASY: 'easy'>
+
+    @pytest.mark.parametrize("test_input", [
+        Level("easy"),
+        Level("medium"),
+        Level("hard"),
+    ])
+    def test_generate_solve_eval(test_input):
+        """
+        test we can generate all levels of a sudoku game
+        and solve them using the solver
+        :param test_input:
+        :return:
+        """
+        target_file = os.sep.join((os.getcwd(), "temp", test_input.value))
+    
+>       with open(target_file, 'w') as f:
+             ^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\defne\\OneDrive\\Masaüstü\\Verification and Validation\\temp\\easy'
+
+tests\test_end_to_end.py:27: FileNotFoundError
+___________________ test_generate_solve_eval[Level.MEDIUM] ____________________
+
+test_input = <Level.MEDIUM: 'medium'>
+
+    @pytest.mark.parametrize("test_input", [
+        Level("easy"),
+        Level("medium"),
+        Level("hard"),
+    ])
+    def test_generate_solve_eval(test_input):
+        """
+        test we can generate all levels of a sudoku game
+        and solve them using the solver
+        :param test_input:
+        :return:
+        """
+        target_file = os.sep.join((os.getcwd(), "temp", test_input.value))
+    
+>       with open(target_file, 'w') as f:
+             ^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\defne\\OneDrive\\Masaüstü\\Verification and Validation\\temp\\medium'
+
+tests\test_end_to_end.py:27: FileNotFoundError
+____________________ test_generate_solve_eval[Level.HARD] _____________________
+
+test_input = <Level.HARD: 'hard'>
+
+    @pytest.mark.parametrize("test_input", [
+        Level("easy"),
+        Level("medium"),
+        Level("hard"),
+    ])
+    def test_generate_solve_eval(test_input):
+        """
+        test we can generate all levels of a sudoku game
+        and solve them using the solver
+        :param test_input:
+        :return:
+        """
+        target_file = os.sep.join((os.getcwd(), "temp", test_input.value))
+    
+>       with open(target_file, 'w') as f:
+             ^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\defne\\OneDrive\\Masaüstü\\Verification and Validation\\temp\\hard'
+
+tests\test_end_to_end.py:27: FileNotFoundError
+__________________ test_solve_eval[sudoku_4given_digits.txt] __________________
+
+test_input = 'sudoku_4given_digits.txt'
+
+    @pytest.mark.parametrize("test_input", [
+        "sudoku_easy.txt",
+        "sudoku_medium.txt",
+        "sudoku_hard.txt",
+        "sudoku_worlds_hardest.txt",
+        "sudoku_4given_digits.txt",
+        "sudoku_another_test_case_1.txt",
+        "sudoku_another_test_case_2.txt",
+        "sudoku_another_test_case_3.txt",
+        "sudoku_another_test_case_4.txt",
+        "sudoku_another_test_case_5.txt",
+    ])
+    def test_solve_eval(test_input):
+        """
+        test we can solve all levels of a sudoku game
+        :param test_input:
+        :return:
+        """
+        target_file = os.path.join(os.getcwd(), 'files', test_input)
+>       solve = run_sudoku_solver(target_file, True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_functional_solve.py:30: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+sudoku\sudoku_game.py:50: in run_sudoku_solver
+    loaded_sudoku_grid = _open_file(sudoku_to_solve)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+sudoku = 'C:\\Users\\defne\\OneDrive\\Masaüstü\\Verification and Validation\\files\\sudoku_4given_digits.txt'
+
+    def _open_file(sudoku):
+        """
+        open the initial sudoku
+        from the txt file and return a list of lists
+        with the grid items
+        """
+        sudoku_grid = []
+>       with open(sudoku) as file_handler:
+             ^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\defne\\OneDrive\\Masaüstü\\Verification and Validation\\files\\sudoku_4given_digits.txt'
+
+sudoku\sudoku_game.py:27: FileNotFoundError
+_______________ test_solve_eval[sudoku_another_test_case_1.txt] _______________
+
+test_input = 'sudoku_another_test_case_1.txt'
+
+    @pytest.mark.parametrize("test_input", [
+        "sudoku_easy.txt",
+        "sudoku_medium.txt",
+        "sudoku_hard.txt",
+        "sudoku_worlds_hardest.txt",
+        "sudoku_4given_digits.txt",
+        "sudoku_another_test_case_1.txt",
+        "sudoku_another_test_case_2.txt",
+        "sudoku_another_test_case_3.txt",
+        "sudoku_another_test_case_4.txt",
+        "sudoku_another_test_case_5.txt",
+    ])
+    def test_solve_eval(test_input):
+        """
+        test we can solve all levels of a sudoku game
+        :param test_input:
+        :return:
+        """
+        target_file = os.path.join(os.getcwd(), 'files', test_input)
+>       solve = run_sudoku_solver(target_file, True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_functional_solve.py:30: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+sudoku\sudoku_game.py:50: in run_sudoku_solver
+    loaded_sudoku_grid = _open_file(sudoku_to_solve)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+sudoku = 'C:\\Users\\defne\\OneDrive\\Masaüstü\\Verification and Validation\\files\\sudoku_another_test_case_1.txt'
+
+    def _open_file(sudoku):
+        """
+        open the initial sudoku
+        from the txt file and return a list of lists
+        with the grid items
+        """
+        sudoku_grid = []
+>       with open(sudoku) as file_handler:
+             ^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\defne\\OneDrive\\Masaüstü\\Verification and Validation\\files\\sudoku_another_test_case_1.txt'
+
+sudoku\sudoku_game.py:27: FileNotFoundError
+_______________ test_solve_eval[sudoku_another_test_case_2.txt] _______________
+
+test_input = 'sudoku_another_test_case_2.txt'
+
+    @pytest.mark.parametrize("test_input", [
+        "sudoku_easy.txt",
+        "sudoku_medium.txt",
+        "sudoku_hard.txt",
+        "sudoku_worlds_hardest.txt",
+        "sudoku_4given_digits.txt",
+        "sudoku_another_test_case_1.txt",
+        "sudoku_another_test_case_2.txt",
+        "sudoku_another_test_case_3.txt",
+        "sudoku_another_test_case_4.txt",
+        "sudoku_another_test_case_5.txt",
+    ])
+    def test_solve_eval(test_input):
+        """
+        test we can solve all levels of a sudoku game
+        :param test_input:
+        :return:
+        """
+        target_file = os.path.join(os.getcwd(), 'files', test_input)
+>       solve = run_sudoku_solver(target_file, True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_functional_solve.py:30: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+sudoku\sudoku_game.py:50: in run_sudoku_solver
+    loaded_sudoku_grid = _open_file(sudoku_to_solve)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+sudoku = 'C:\\Users\\defne\\OneDrive\\Masaüstü\\Verification and Validation\\files\\sudoku_another_test_case_2.txt'
+
+    def _open_file(sudoku):
+        """
+        open the initial sudoku
+        from the txt file and return a list of lists
+        with the grid items
+        """
+        sudoku_grid = []
+>       with open(sudoku) as file_handler:
+             ^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\defne\\OneDrive\\Masaüstü\\Verification and Validation\\files\\sudoku_another_test_case_2.txt'
+
+sudoku\sudoku_game.py:27: FileNotFoundError
+_______________ test_solve_eval[sudoku_another_test_case_3.txt] _______________
+
+test_input = 'sudoku_another_test_case_3.txt'
+
+    @pytest.mark.parametrize("test_input", [
+        "sudoku_easy.txt",
+        "sudoku_medium.txt",
+        "sudoku_hard.txt",
+        "sudoku_worlds_hardest.txt",
+        "sudoku_4given_digits.txt",
+        "sudoku_another_test_case_1.txt",
+        "sudoku_another_test_case_2.txt",
+        "sudoku_another_test_case_3.txt",
+        "sudoku_another_test_case_4.txt",
+        "sudoku_another_test_case_5.txt",
+    ])
+    def test_solve_eval(test_input):
+        """
+        test we can solve all levels of a sudoku game
+        :param test_input:
+        :return:
+        """
+        target_file = os.path.join(os.getcwd(), 'files', test_input)
+>       solve = run_sudoku_solver(target_file, True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_functional_solve.py:30: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+sudoku\sudoku_game.py:50: in run_sudoku_solver
+    loaded_sudoku_grid = _open_file(sudoku_to_solve)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+sudoku = 'C:\\Users\\defne\\OneDrive\\Masaüstü\\Verification and Validation\\files\\sudoku_another_test_case_3.txt'
+
+    def _open_file(sudoku):
+        """
+        open the initial sudoku
+        from the txt file and return a list of lists
+        with the grid items
+        """
+        sudoku_grid = []
+>       with open(sudoku) as file_handler:
+             ^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\defne\\OneDrive\\Masaüstü\\Verification and Validation\\files\\sudoku_another_test_case_3.txt'
+
+sudoku\sudoku_game.py:27: FileNotFoundError
+_______________ test_solve_eval[sudoku_another_test_case_4.txt] _______________
+
+test_input = 'sudoku_another_test_case_4.txt'
+
+    @pytest.mark.parametrize("test_input", [
+        "sudoku_easy.txt",
+        "sudoku_medium.txt",
+        "sudoku_hard.txt",
+        "sudoku_worlds_hardest.txt",
+        "sudoku_4given_digits.txt",
+        "sudoku_another_test_case_1.txt",
+        "sudoku_another_test_case_2.txt",
+        "sudoku_another_test_case_3.txt",
+        "sudoku_another_test_case_4.txt",
+        "sudoku_another_test_case_5.txt",
+    ])
+    def test_solve_eval(test_input):
+        """
+        test we can solve all levels of a sudoku game
+        :param test_input:
+        :return:
+        """
+        target_file = os.path.join(os.getcwd(), 'files', test_input)
+>       solve = run_sudoku_solver(target_file, True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_functional_solve.py:30: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+sudoku\sudoku_game.py:50: in run_sudoku_solver
+    loaded_sudoku_grid = _open_file(sudoku_to_solve)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+sudoku = 'C:\\Users\\defne\\OneDrive\\Masaüstü\\Verification and Validation\\files\\sudoku_another_test_case_4.txt'
+
+    def _open_file(sudoku):
+        """
+        open the initial sudoku
+        from the txt file and return a list of lists
+        with the grid items
+        """
+        sudoku_grid = []
+>       with open(sudoku) as file_handler:
+             ^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\defne\\OneDrive\\Masaüstü\\Verification and Validation\\files\\sudoku_another_test_case_4.txt'
+
+sudoku\sudoku_game.py:27: FileNotFoundError
+_______________ test_solve_eval[sudoku_another_test_case_5.txt] _______________
+
+test_input = 'sudoku_another_test_case_5.txt'
+
+    @pytest.mark.parametrize("test_input", [
+        "sudoku_easy.txt",
+        "sudoku_medium.txt",
+        "sudoku_hard.txt",
+        "sudoku_worlds_hardest.txt",
+        "sudoku_4given_digits.txt",
+        "sudoku_another_test_case_1.txt",
+        "sudoku_another_test_case_2.txt",
+        "sudoku_another_test_case_3.txt",
+        "sudoku_another_test_case_4.txt",
+        "sudoku_another_test_case_5.txt",
+    ])
+    def test_solve_eval(test_input):
+        """
+        test we can solve all levels of a sudoku game
+        :param test_input:
+        :return:
+        """
+        target_file = os.path.join(os.getcwd(), 'files', test_input)
+>       solve = run_sudoku_solver(target_file, True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_functional_solve.py:30: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+sudoku\sudoku_game.py:50: in run_sudoku_solver
+    loaded_sudoku_grid = _open_file(sudoku_to_solve)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+sudoku = 'C:\\Users\\defne\\OneDrive\\Masaüstü\\Verification and Validation\\files\\sudoku_another_test_case_5.txt'
+
+    def _open_file(sudoku):
+        """
+        open the initial sudoku
+        from the txt file and return a list of lists
+        with the grid items
+        """
+        sudoku_grid = []
+>       with open(sudoku) as file_handler:
+             ^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\defne\\OneDrive\\Masaüstü\\Verification and Validation\\files\\sudoku_another_test_case_5.txt'
+
+sudoku\sudoku_game.py:27: FileNotFoundError
+=========================== short test summary info ===========================
+FAILED tests/test_end_to_end.py::test_generate_solve_eval[Level.EASY] - FileN...
+FAILED tests/test_end_to_end.py::test_generate_solve_eval[Level.MEDIUM] - Fil...
+FAILED tests/test_end_to_end.py::test_generate_solve_eval[Level.HARD] - FileN...
+FAILED tests/test_functional_solve.py::test_solve_eval[sudoku_4given_digits.txt]
+FAILED tests/test_functional_solve.py::test_solve_eval[sudoku_another_test_case_1.txt]
+FAILED tests/test_functional_solve.py::test_solve_eval[sudoku_another_test_case_2.txt]
+FAILED tests/test_functional_solve.py::test_solve_eval[sudoku_another_test_case_3.txt]
+FAILED tests/test_functional_solve.py::test_solve_eval[sudoku_another_test_case_4.txt]
+FAILED tests/test_functional_solve.py::test_solve_eval[sudoku_another_test_case_5.txt]
+========================= 9 failed, 7 passed in 3.02s =========================
+Exit code: 1

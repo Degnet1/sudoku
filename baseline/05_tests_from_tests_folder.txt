@@ -1,0 +1,13 @@
+﻿PS (tests folder, PYTHONPATH=..)> python -m pytest
+============================= test session starts =============================
+platform win32 -- Python 3.14.2, pytest-9.2.0, pluggy-1.7.0
+rootdir: C:\Users\defne\OneDrive\Masaüstü\Verification and Validation\tests
+plugins: hypothesis-6.170.17, cov-7.1.0
+collected 16 items
+
+test_end_to_end.py ...                                                   [ 18%]
+test_functional_generate.py ...                                          [ 37%]
+test_functional_solve.py ..........                                      [100%]
+
+============================= 16 passed in 2.30s ==============================
+Exit code: 0

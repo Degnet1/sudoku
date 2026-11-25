@@ -1,0 +1,30 @@
+﻿PS (tests folder, PYTHONPATH=..)> python -m pytest --cov=sudoku --cov-branch --cov-report=term-missing --cov-report=html
+============================= test session starts =============================
+platform win32 -- Python 3.14.2, pytest-9.2.0, pluggy-1.7.0
+rootdir: C:\Users\defne\OneDrive\Masaüstü\Verification and Validation\tests
+plugins: hypothesis-6.170.17, cov-7.1.0
+collected 16 items
+
+test_end_to_end.py ...                                                   [ 18%]
+test_functional_generate.py ...                                          [ 37%]
+test_functional_solve.py ..........                                      [100%]
+
+=============================== tests coverage ================================
+_______________ coverage: platform win32, python 3.14.2-final-0 _______________
+
+Name                                                                                 Stmts   Miss Branch BrPart  Cover   Missing
+--------------------------------------------------------------------------------------------------------------------------------
+C:\Users\defne\OneDrive\Masaüstü\Verification and Validation\sudoku\__init__.py          0      0      0      0   100%
+C:\Users\defne\OneDrive\Masaüstü\Verification and Validation\sudoku\action_type.py       4      0      0      0   100%
+C:\Users\defne\OneDrive\Masaüstü\Verification and Validation\sudoku\exceptions.py        1      0      0      0   100%
+C:\Users\defne\OneDrive\Masaüstü\Verification and Validation\sudoku\generator.py        67      1     28      2    97%   51->64, 121
+C:\Users\defne\OneDrive\Masaüstü\Verification and Validation\sudoku\grid.py             27      2      0      0    93%   80-83
+C:\Users\defne\OneDrive\Masaüstü\Verification and Validation\sudoku\level.py             5      0      0      0   100%
+C:\Users\defne\OneDrive\Masaüstü\Verification and Validation\sudoku\printer.py           4      1      2      1    67%   16
+C:\Users\defne\OneDrive\Masaüstü\Verification and Validation\sudoku\solver.py           50      2     20      2    94%   123, 136
+C:\Users\defne\OneDrive\Masaüstü\Verification and Validation\sudoku\sudoku_game.py      63     32     12      2    47%   38-39, 47, 71-113, 120-135, 139
+--------------------------------------------------------------------------------------------------------------------------------
+TOTAL                                                                                  221     38     62      7    82%
+Coverage HTML written to dir htmlcov
+============================= 16 passed in 2.77s ==============================
+Exit code: 0
