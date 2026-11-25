@@ -2,6 +2,10 @@
 
 This file gives the context, rules, plan and current status of our SEN4013 Software Verification and Validation group project. Keep it in the root of our fork so that teammates and any AI assistant (for example Claude Code in VS Code) start from the same information. Update the **Status** section as work progresses.
 
+**Full details** (teammate onboarding, every step task by task, how the code works, testing tips, approach justification) are in `PLAN.md`, imported here:
+
+@PLAN.md
+
 ## Project at a glance
 
 | | |
@@ -85,8 +89,8 @@ Template: **ID · description · steps to reproduce · expected vs actual · cau
 | INC-03 | A grid of only 1s is reported as "solved" in 1 try | Given numbers are never checked against Sudoku rules | Open |
 | INC-04 | A puzzle with two 5s in one row runs 1,000,000 attempts, then crashes with `TooManyTries` | Same root cause as INC-03 | Open |
 | INC-05 | An unsolvable puzzle prints "Finished in … in None tries" with no error message | Solver returns `None`; the caller doesn't handle it | Open |
-| INC-06 | A valid puzzle written with spaces (`0 0 0 5 …`) is rejected as `InvalidGridItem` | Likely typo: `row.join(row.split())` where `"".join(...)` was meant | Open (candidate fix) |
-| Note | The latest upstream commit claims a solver speed-up (list → set in the unknowns count), but tries were identical on three puzzles, and the count is now always 1 | Claimed improvement not measurable | Discuss in report |
+| INC-06 | A valid puzzle written with spaces (`0 0 0 5 …`) is rejected as `InvalidGridItem` | `sudoku_game.py:37` `row.join(row.split())` uses the row itself as separator (confirmed by reading the code); `"".join(...)` was meant | Open (candidate fix) |
+| Note | The latest upstream commit claims a solver speed-up (list → set in the unknowns count), but tries were identical on three puzzles | `solver.py:86` counts zeros in a *set*, so the count is always 1 and the queue priority never changes (see PLAN.md §3) | Discuss in report |
 
 INC-03 to INC-06 were found during project selection. Each must be **re-reproduced on our own machines** before it goes in the report.
 
@@ -106,6 +110,8 @@ Each person owns one testing approach end to end: tests, report section, share o
 Test case template: **ID · requirement · input · expected result · actual result · pass/fail**
 
 ## Plan
+
+Summary below; every task, command and "done when" per step is in `PLAN.md` §2.
 
 - **Step 0: Kick-off** (25–26 Nov). Confirm roles, split Part 1, agree on templates, share the fork.
 - **Step 1: Setup and baseline** (26–27 Nov, Defne). Fork and clone, venv, run program and tests from both locations, save baseline coverage (terminal output + `htmlcov` copy + date + Python version), log INC-01 and INC-02, create and push test folders.
@@ -130,4 +136,5 @@ _Update this section as work progresses: date, who, what._
 
 - 2026-10-16: Group and topic submitted (Sudoku).
 - 2026-11-25: Plan agreed. Defne starting Step 1.
-- 2026-11-25 (Defne): Step 1 done. Fork `Degnet1/sudoku` (remotes: `origin` = fork, `upstream` = datahappy1). venv with pytest, pytest-cov, hypothesis. Program runs via `-m`; INC-01 and INC-02 reproduced; baseline saved in `baseline/`; test folders created. Still to do: add Ezgi and Elif as collaborators; each teammate clones and runs the tests once on their own machine.
+- 2026-11-25 (Defne): Step 1 done. Fork `Degnet1/sudoku` (remotes: `origin` = fork, `upstream` = datahappy1). venv with pytest, pytest-cov, hypothesis. Program runs via `-m`; INC-01 and INC-02 reproduced; baseline saved in `baseline/`; test folders created. Still to do: add Ezgi and Elif as collaborators; each teammate clones and runs the tests once on their own machine (PLAN.md §1).
+- 2026-11-25 (Defne): Added `PLAN.md` with the full plan, onboarding, code walkthrough and testing tips, imported into this file.
